@@ -1,3 +1,4 @@
+//This contains the sample friend array
 var friendInfo = [
     {
         name: "Lily Song",
