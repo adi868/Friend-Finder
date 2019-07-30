@@ -1,9 +1,9 @@
 //This contains the sample friend array
 var friendInfo = [
     {
-        name: "Lily Song",
-        photo: "http://www.koreatimesus.com/wp-content/uploads/2014/05/image-1.jpeg",
-        scores:[
+        "name": "Lily Song",
+        "photo": "http://www.koreatimesus.com/wp-content/uploads/2014/05/image-1.jpeg",
+        "scores":[
             3,
             4,
             3,
@@ -17,9 +17,9 @@ var friendInfo = [
         ]
     },
     {
-        name: "Jenna Marie",
-        photo: "https://garnant.files.wordpress.com/2016/07/rachel.jpg",
-        scores:[
+        "name": "Jenna Marie",
+        "photo": "https://garnant.files.wordpress.com/2016/07/rachel.jpg",
+        "scores":[
             3,
             1,
             2,
@@ -33,9 +33,9 @@ var friendInfo = [
         ]
     },
     {
-        name: "Roy Hart",
-        photo: "http://www.koreatimesus.com/wp-content/uploads/2014/08/koreng.jpg",
-        scores:[
+        "name": "Roy Hart",
+        "photo": "http://www.koreatimesus.com/wp-content/uploads/2014/08/koreng.jpg",
+        "scores":[
             3,
             3,
             1,

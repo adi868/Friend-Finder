@@ -1,13 +1,13 @@
 # Friend-Finder
-This full-stack site will take in results from your users' surveys, then compare their answers with those from other users. The application will then display the name and picture of the user with the best overall match.
+This full-stack site will take in results from your users' surveys, then compare their answers with those from other users. The application will then display the name and picture of the user with the best overall friendship match!
 
 ## Technologies
-* Javascript
-* Node JS
+* JavaScript
+* Node.js
 * HTML5
 * CSS
 * Animate.css
 * Express
 * Path
 * Heroku
-* Various NPM Packages
+* NPM Packages
