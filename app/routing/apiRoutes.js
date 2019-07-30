@@ -1,5 +1,5 @@
 //Linking the friends.js file which contains the friend data array information
-var friendData = require("../app/data/friends");
+var friendData = require("../data/friends");
 
 module.exports = function (app) {
     app.get("/api/friends", function (request, response) {
