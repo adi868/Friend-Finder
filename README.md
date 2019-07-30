@@ -6,6 +6,7 @@ This full-stack site will take in results from your users' surveys, then compare
 * Node JS
 * HTML5
 * CSS
+* Animate.css
 * Express
 * Path
 * Heroku
