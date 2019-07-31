@@ -1,5 +1,5 @@
 // This contains the sample friend array
-var friendInfo = [
+var friendData = [
     {
         name: "Lily Song",
         photo: "http://www.koreatimesus.com/wp-content/uploads/2014/05/image-1.jpeg",
@@ -50,4 +50,4 @@ var friendInfo = [
     }
 ]
 //Exporting the array. This makes it accessible to other files with require
-module.exports = friendInfo;
+module.exports = friendData;
