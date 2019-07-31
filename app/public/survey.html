@@ -207,7 +207,7 @@
                             $("#question10").val().trim()
                         ]
                     }
-                   
+
                     // Adding new friend information via POST request
                     $.post("/api/friends", newFriend).then(function (error, data) {
                         console.log(newFriend)
@@ -218,38 +218,38 @@
                         var userArray = data[data.length - 1].scores;
                         //stores the total difference
                         var totalDiff = 0;
-                        //stores the result of the total difference
-                        var result = 0;
                         var matchName;
                         var matchURL;
+                        var lowDiff = 100;
 
                         //Iterate through the current users to compare with new person
                         for (var i = 1; data.length - 1; i++) {
 
                             for (j = 0; j < data[i].scores.length; j++) {
-                                result = parseFloat(userArray[j]) - parseFloat(data[i].scores[
+                                temp = parseFloat(userArray[j]) - parseFloat(data[i].scores[
                                     j])
-                                totalDiff += Math.abs(result)
+                                temp = Math.abs(temp)
+                                totalDiff += temp
                             }
-                            matchName = data[i].name;
-                            matchURL = data[i].photo;
+                            if (totalDiff < lowDiff) {
+                                lowDiff = totalDiff
+                                matchName = data[i].name;
+                                matchURL = data[i].photo;
+                            }
                             totalDiff = 0
                         }
-                         //Resetting text fields
-                     $("#name").val("");
-                    $("#imageLink").val("");
+    
                     //Formatting the modal
                     $("#modalText").html("Your friend match is:" + matchName);
                     $("#modalImage").html(
-                        "<img src = https://garnant.files.wordpress.com/2016/07/rachel.jpg>");
+                        "<img src = https://garnant.files.wordpress.com/2016/07/rachel.jpg>"
+                    );
                     $("img").css({
                         "height": "400px",
                         "width": "400px"
                     });
                     $("#modal").modal('show');
-
                     })
-            
                 })
             })
         </script>
@@ -269,3 +269,7 @@
 </body>
 
 </html>
+
+<!-- //Resetting text fields
+$("#name").val("");
+$("#imageLink").val(""); -->
