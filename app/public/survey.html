@@ -15,6 +15,7 @@
 </head>
 
 <body>
+
     <div class="bg"></div>
     <div class="bg bg2"></div>
     <div class="bg bg3"></div>
@@ -177,7 +178,7 @@
             </div>
         </div>
         <!-- Modal End -->
-        
+
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -186,35 +187,41 @@
 
 
         <script type="text/javascript">
-            $("#submit").on("click", function (event) {
-                event.preventDefault();
+            $(document).ready(function () {
+                $("#submit").on("click", function (event) {
+                    event.preventDefault();
 
-                var newFriend = {
-                    name: $("#name").val().trim(),
-                    photo: $("#imageLink").val().trim(),
-                    scores: [
-                        $("#question1").val().trim(),
-                        $("#question2").val().trim(),
-                        $("#question3").val().trim(),
-                        $("#question4").val().trim(),
-                        $("#question5").val().trim(),
-                        $("#question6").val().trim(),
-                        $("#question7").val().trim(),
-                        $("#question8").val().trim(),
-                        $("#question9").val().trim(),
-                        $("#question10").val().trim()
-                    ]
-                }
-                //Resetting text fields
-                $("#name").val("");
-                $("#imageLink").val("");
-                console.log(newFriend)
+                    var newFriend = {
+                        name: $("#name").val().trim(),
+                        photo: $("#imageLink").val().trim(),
+                        scores: [
+                            $("#question1").val().trim(),
+                            $("#question2").val().trim(),
+                            $("#question3").val().trim(),
+                            $("#question4").val().trim(),
+                            $("#question5").val().trim(),
+                            $("#question6").val().trim(),
+                            $("#question7").val().trim(),
+                            $("#question8").val().trim(),
+                            $("#question9").val().trim(),
+                            $("#question10").val().trim()
+                        ]
+                    }
+                    //Resetting text fields
+                    $("#name").val("");
+                    $("#imageLink").val("");
+                    console.log(newFriend)
 
-                $("#modalText").html("Your friend match is:");
-                $("#modalImage").html("<img src = https://garnant.files.wordpress.com/2016/07/rachel.jpg>");
-                $("img").css({"height":"400px", "width":"400px"});
-                $("#modal").modal('show');
-            })
+                    $("#modalText").html("Your friend match is:");
+                    $("#modalImage").html(
+                        "<img src = https://garnant.files.wordpress.com/2016/07/rachel.jpg>");
+                    $("img").css({
+                        "height": "400px",
+                        "width": "400px"
+                    });
+                    $("#modal").modal('show');
+                })
+            });
         </script>
 
         <footer class="footer">
