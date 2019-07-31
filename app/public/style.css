@@ -105,3 +105,7 @@ h1 {
 #homeButton{
   margin-right:20px;
 }
+
+#name, #imageLink{
+  width:600px;
+}

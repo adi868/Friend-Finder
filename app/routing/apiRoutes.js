@@ -20,34 +20,8 @@ module.exports = function (app) {
 
     // Adding new friend information via POST request
     app.post("/api/friends", function (request, response) {
-        var addFriend = request.body;
-        //stores the total difference
-        var totalDiff = 0;
-        //stores the result of the total difference
-        var result = 0;
-        var newTable = []
-
-        console.log("Testing" + addFriend)
-        //Iterate through the current users to compare with new person
-        for (var i = 0; friendData.length; i++) {
-            totalDiff = 0;
-            for (j = 0; j < addFriend.scores.length; j++) {
-                result = parseFloat(friendData[i].scores[j]) - parseFloat(addFriend.scores[j])
-                totalDiff += Math.abs(result)
-            }
-            newTable.push({
-                friendData: friendData[i].name,
-                totalDifference: totalDifference,
-                photo: friendData[i].photo
-            })
-        }
-
-        friendData.push(addFriend)
-        newTable.sort(function (a, b) {
-            return a.totalDiff - b.totalDiff
-        })
-        console.log(newTable)
-        response.json(newTable[0]);
-
+        var newFriend = request.body;
+        friendData.push(newFriend)
+        response.json(newFriend)
     })
-};
+}

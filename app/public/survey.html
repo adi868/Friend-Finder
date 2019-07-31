@@ -207,12 +207,40 @@
                             $("#question10").val().trim()
                         ]
                     }
-                    //Resetting text fields
-                    $("#name").val("");
-                    $("#imageLink").val("");
-                    console.log(newFriend)
+                   
+                    // Adding new friend information via POST request
+                    $.post("/api/friends", newFriend).then(function (error, data) {
+                        console.log(newFriend)
+                    })
 
-                    $("#modalText").html("Your friend match is:");
+                    //Getting information from the server on the friend entries
+                    $.get("/api/friends", function (data) {
+                        var userArray = data[data.length - 1].scores;
+                        //stores the total difference
+                        var totalDiff = 0;
+                        //stores the result of the total difference
+                        var result = 0;
+                        var matchName;
+                        var matchURL;
+
+                        //Iterate through the current users to compare with new person
+                        for (var i = 1; data.length - 1; i++) {
+
+                            for (j = 0; j < data[i].scores.length; j++) {
+                                result = parseFloat(userArray[j]) - parseFloat(data[i].scores[
+                                    j])
+                                totalDiff += Math.abs(result)
+                            }
+                            matchName = data[i].name;
+                            matchURL = data[i].photo;
+                            totalDiff = 0
+                        }
+                    })
+                     //Resetting text fields
+                     $("#name").val("");
+                    $("#imageLink").val("");
+                    //Formatting the modal
+                    $("#modalText").html("Your friend match is:" + matchName);
                     $("#modalImage").html(
                         "<img src = https://garnant.files.wordpress.com/2016/07/rachel.jpg>");
                     $("img").css({
@@ -220,17 +248,19 @@
                         "width": "400px"
                     });
                     $("#modal").modal('show');
+
                 })
-            });
+            })
         </script>
 
         <footer class="footer">
             <div class="form-group col-md-12">
-                    <span style="display: inline;">
-                <a href="home.html"><button class="btn btn-lg btn-default" id = "homeButton"><span class="fa fa-home"></span></button></a>
-                <a href="/api/friends">API Friends Link</a> | <a href="https://github.com/adi868/Friend_Finder"
+                <span style="display: inline;">
+                    <a href="home.html"><button class="btn btn-lg btn-default" id="homeButton"><span
+                                class="fa fa-home"></span></button></a>
+                    <a href="/api/friends">API Friends Link</a> | <a href="https://github.com/adi868/Friend_Finder"
                         target="_blank">GitHub Repository</a>
-                    </span>
+                </span>
             </div>
 
         </footer>
