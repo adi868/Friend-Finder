@@ -2,7 +2,7 @@
 // We are linking our routes to a series of "data" sources
 // Linking the friends.js file which contains the friend data array information
 
-var friendData = require("../data/friends");
+var friendData = require("..app/data/friends");
 
 // API GET Requests
 // Routing
