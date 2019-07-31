@@ -88,7 +88,7 @@ h1 {
 }
 
 #submit {
-  background-color: rgb(182, 218, 242);
+  background-color: rgb(190, 222, 243);
   border: 1px solid rgb(187, 193, 237);
   text-transform: uppercase;
   height: 60px;
@@ -100,5 +100,5 @@ h1 {
 }
 
 #submit:hover {
-  background-color: rgb(203, 228, 249);
+  background-color: rgb(171, 214, 248);
 }
