@@ -214,27 +214,26 @@
                     })
 
                     //Getting information from the server on the friend entries
-                    $.get("/api/friends", function (data) {
-                        var userArray = data[data.length - 1].scores;
-                        //stores the total difference
+                    $.get("/api/friends", function(data) {
                         var totalDiff = 0;
                         var matchName;
-                        var matchURL;
+                        var matchImage;
 
                         //Iterate through the current users to compare with new person
-                        for (var i = 1; data.length - 1; i++) {
+                        for (var i = 0; data.length; i++) {
 
                             for (j = 0; j < data[i].scores.length; j++) {
-                                temp = parseFloat(userArray[j]) - parseFloat(data[i].scores[
+                                hold = parseFloat(data[j]) - parseFloat(data[i].scores[
                                     j])
-                                temp = Math.abs(temp)
-                                totalDiff += temp
+                                hold = Math.abs(hold)
+                                totalDiff += hold
                             }
 
                             matchName = data[i].name;
-                            matchURL = data[i].photo;
-
+                            matchImage = data[i].photo;
+                            console.log(matchName)
                             totalDiff = 0
+
                         }
 
                         //Formatting the modal
