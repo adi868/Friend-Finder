@@ -9,8 +9,9 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Bungee+Shade&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 
 <body>
@@ -21,7 +22,7 @@
         <div class="SurveyPage">
             <form action="POST" class="form">
                 <div class="form-group col-md-12">
-                    <h1><u>FRIEND FINDER</u></h1>
+                    <h1><span class="fa fa-fire"></span><u> FRIEND FINDER </u><span class="fa fa-fire"></span></h1>
                     <br>
                     <h3>About You</h3>
                     <hr>
@@ -154,12 +155,12 @@
         </div>
 
 
-    <div class="modal" tabindex="-1" role="dialog" id="modal">
+        <div class="modal" tabindex="-1" role="dialog" id="modal">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body text-center">
-                        <p id = "modalText"></p>
-                        <p id = "modalLink"></p>
+                        <p id="modalText"></p>
+                        <p id="modalLink"></p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -168,17 +169,17 @@
             </div>
         </div>
 
-        <script>
-        
-                $("#modal").modal({show: false});
-                $("#submit").on("click", function(event)
-                {
-                    event.preventDefault();
-                    
-                    var newFriend = {
-                        name: $("#name").val().trim(),
-                        photoURL: $("#imageLink").val().trim(),
-                        scores: [
+        <script type="text/javascript">
+            $("#modal").modal({
+                show: false
+            });
+            $("#submit").on("click", function (event) {
+                event.preventDefault();
+
+                var newFriend = {
+                    name: $("#name").val().trim(),
+                    photo: $("#imageLink").val().trim(),
+                    scores: [
                         $("#question1").val().trim(),
                         $("#question2").val().trim(),
                         $("#question3").val().trim(),
@@ -189,70 +190,73 @@
                         $("#question8").val().trim(),
                         $("#question9").val().trim(),
                         $("#question10").val().trim()
-                        ]
-                    }
-                    
-                    $.post("/api/friends", newFriend).then(function(error, data)
-                    {
-                        console.log(newFriend);
-                    })
-                    
-                    $.get("/api/friends", function(data)
-                    {
-                        var userArray = data[data.length -1].scores;
-                        var difference = 0;
-                        var lowDiff = 100;
-                        var matchName;
-                        var matchURL;
-                    
-                        if(data.length < 3)
-                        {
-                            $("#modalText").text("<h1>Insufficient Data</h1>");
-                            $("#modal").modal("show");
-                        }
-                        
-                        else
-                        {
-                            console.log("Starting Friend Search");
-                            //Iterate Through The Users
-                            for (i = 1; i < data.length - 1; i++)
-                            {
-                                //Iterate Through The User's Scores And Getting The Total Difference
-                                for (j = 0; j < data[i].scores.length; j++)
-                                {
-                                    var temp;
-                                    temp = parseInt(userArray[j]) - parseInt(data[i].scores[j]);
-                                    temp = Math.abs(temp);
-                                    difference += temp;
-                                }
-                                //If The Difference Is Lower Than The Current Low, Will Update It
-                                if (difference < lowDiff)
-                                {
-                                    lowDiff = difference;
-                                    matchName = data[i].name;
-                                    matchURL = data[i].photoURL;
-                                }
-                               
-                                difference = 0;
-                            }
-                            
-                            $("#modalText").html("<h1>Your match is " + matchName + "!</h1>");
-                            $("#modalLink").html("<img src='" + matchURL + "'>");
-                            $("img").css({"height": "200px", "width": "200px"});
-                            $("#modal").modal("show");
-                        }
-                    })
-                    //Resetting The Fields
-                    $("#name").text("");
-                    $("#imageLink").text("");
+                    ]
+                }
+
+                $.post("/api/friends", newFriend).then(function (error, data) {
+                    console.log(newFriend);
                 })
-                </script>
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-                <!-- Bootstrap JavaScript CDN -->
-                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-                
+
+                $.get("/api/friends", function (data) {
+                    var userArray = data[data.length - 1].scores;
+                    var difference = 0;
+                    var lowDiff = 100;
+                    var matchName;
+                    var matchURL;
+
+                    if (data.length < 3) {
+                        $("#modalText").text("<h1>Insufficient Data</h1>");
+                        $("#modal").modal("show");
+                    } else {
+                        console.log("Starting Friend Search");
+                        //Iterate Through The Users
+                        for (i = 1; i < data.length - 1; i++) {
+                            //Iterate Through The User's Scores And Getting The Total Difference
+                            for (j = 0; j < data[i].scores.length; j++) {
+                                var temp;
+                                temp = parseInt(userArray[j]) - parseInt(data[i].scores[j]);
+                                temp = Math.abs(temp);
+                                difference += temp;
+                            }
+                            //If The Difference Is Lower Than The Current Low, Will Update It
+                            if (difference < lowDiff) {
+                                lowDiff = difference;
+                                matchName = data[i].name;
+                                matchURL = data[i].photo;
+                            }
+
+                            difference = 0;
+                        }
+
+                        $("#modalText").html("<h1>Your match is " + matchName + "!</h1>");
+                        $("#modalLink").html("<img src='" + matchURL + "'>");
+                        $("img").css({
+                            "height": "200px",
+                            "width": "200px"
+                        });
+                        $("#modal").modal("show");
+                    }
+                })
+                //Resetting The Fields
+                $("#name").text("");
+                $("#imageLink").text("");
+            })
+        </script>
+
+        <footer class="footer">
+            <div class="form-group col-md-12">
+                <p><a href="/api/friends">API Friends Link</a> | <a href="https://github.com/adi868/Friend_Finder"
+                        target="_blank">GitHub Repository</a>
+            </div>
+            <a href="../public/home.html"><button class="btn btn-lg btn-default"><span class="fa fa-home"></span></button></a>
+        </footer>
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>
