@@ -102,3 +102,6 @@ h1 {
 #submit:hover {
   background-color: rgb(171, 214, 248);
 }
+#homeButton{
+  margin-right:20px;
+}
