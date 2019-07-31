@@ -41,6 +41,19 @@ html {
     font-family: 'Cabin Sketch', cursive;
   }
 
+  .contentSurvey{
+    background-color:rgba(255,255,255,.8);
+    border-radius:.25em;
+    box-shadow:0 0 .25em rgba(0,0,0,.25);
+    padding:5vmin;
+    display: table;
+    margin: 0 auto;
+    margin-top:20px;
+    width: 1300px;
+    height: 1000px;
+    font-family: 'Cabin Sketch', cursive;   
+  }
+
   h1{
     font-size: 40px;
   }
@@ -73,4 +86,17 @@ html {
     background-color: rgb(203, 228, 249);
 }
 
-
+#submit{
+  background-color: rgb(182, 218, 242);
+  border: 1px solid rgb(187, 193, 237);
+  text-transform: uppercase;
+  height: 60px;
+  color: rgb(13, 19, 34);
+  border-radius: 50px;
+  letter-spacing: 4px;
+  font-weight:bold;
+  font-size: 30px;
+}
+#submit:hover {
+  background-color: rgb(203, 228, 249);
+}
