@@ -209,14 +209,15 @@
                     // Adding new friend information via POST request
                     $.post("/api/friends", newFriend).then(function (data) {
                         console.log(data)
-
-                        $(".modal-body").append("Name: " + data.name + "<br><br>")
+                        $(".modal-body").empty();
+                        $(".modal-body").append("Name: " + data.name + "<br>")
                         $(".modal-body").append("<img src='" + data.photo + "' />")
                         $("#modal").modal('show');
 
                         $("img").css({
                             "height": "400px",
-                            "width": "400px"
+                            "width": "400px",
+                            "margin-top": "10px"
                         });
 
                         //Resetting text fields
