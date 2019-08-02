@@ -13,3 +13,6 @@ Welcome to Friend_Finder! Friend_Finder is a full-stack site that takes in resul
 * NPM Packages
 
 Check it out at: https://friend-finder-adi868.herokuapp.com/.
+
+### Developer:
+Adina Cianciotto
