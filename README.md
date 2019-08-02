@@ -11,3 +11,5 @@ This full-stack site will take in results from users' surveys, then compare thei
 * Path
 * Heroku
 * NPM Packages
+
+Check it out at: https://friend-finder-adi868.herokuapp.com/!
