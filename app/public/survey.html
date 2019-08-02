@@ -29,11 +29,11 @@
                     <hr>
                     <div class="form-group">
                         <p>Name (Required)</p>
-                        <input type="text" class="form-control" id="name">
+                        <input type="text" class="form-control" id="name" required>
                     </div>
                     <div class="form-group">
                         <p>Link To Image URL (Required)</p>
-                        <input type="text" class="form-control" id="imageLink">
+                        <input type="text" class="form-control" id="imageLink" required>
                         <hr>
                     </div>
 
@@ -158,7 +158,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Your Match</h5>
+                        <h5 class="modal-title">Your Match!</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -207,24 +207,24 @@
                     }
 
                     // Adding new friend information via POST request
-                    $.post("/api/friends", newFriend).then(function (error, data) {
-                        console.log(newFriend)
+                    $.post("/api/friends", newFriend).then(function (data) {
+                        console.log(data)
 
+                        $(".modal-body").append("Name: " + data.name + "<br><br>")
+                        $(".modal-body").append("<img src='" + data.photo + "' />")
+                        $("#modal").modal('show');
+
+                        $("img").css({
+                            "height": "400px",
+                            "width": "400px"
+                        });
+
+                        //Resetting text fields
+                        $("#name").val("");
+                        $("#imageLink").val("");
+                        $(".modal-body").html("");
                     })
 
-                    //Getting information from the server on the friend entries
-                    $.get("/api/friends", function (data) {})
-
-                    //Formatting the modal
-                    $("#modalText").html("Your friend match is:");
-                    $("#modalImage").html(
-                        "<img src = https://garnant.files.wordpress.com/2016/07/rachel.jpg>"
-                    );
-                    $("img").css({
-                        "height": "400px",
-                        "width": "400px"
-                    });
-                    $("#modal").modal('show');
                 })
             })
         </script>
@@ -244,7 +244,3 @@
 </body>
 
 </html>
-
-<!-- //Resetting text fields
-$("#name").val("");
-$("#imageLink").val(""); -->
