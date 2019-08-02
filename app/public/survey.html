@@ -209,42 +209,22 @@
                     // Adding new friend information via POST request
                     $.post("/api/friends", newFriend).then(function (error, data) {
                         console.log(newFriend)
+
                     })
 
                     //Getting information from the server on the friend entries
-                    $.get("/api/friends", function(data) {
-                        var totalDiff = 0;
-                        var matchName;
-                        var matchImage;
+                    $.get("/api/friends", function (data) {})
 
-                        //Iterate through the current users to compare with new person
-                        for (var i = 0; data.length; i++) {
-
-                            for (j = 0; j < data[i].scores.length; j++) {
-                                hold = parseFloat(data[j]) - parseFloat(data[i].scores[
-                                    j])
-                                hold = Math.abs(hold)
-                                totalDiff += hold
-                            }
-
-                            matchName = data[i].name;
-                            matchImage = data[i].photo;
-                            console.log(matchName)
-                            totalDiff = 0
-
-                        }
-
-                        //Formatting the modal
-                        $("#modalText").html("Your friend match is:" + matchName);
-                        $("#modalImage").html(
-                            "<img src = https://garnant.files.wordpress.com/2016/07/rachel.jpg>"
-                        );
-                        $("img").css({
-                            "height": "400px",
-                            "width": "400px"
-                        });
-                        $("#modal").modal('show');
-                    })
+                    //Formatting the modal
+                    $("#modalText").html("Your friend match is:");
+                    $("#modalImage").html(
+                        "<img src = https://garnant.files.wordpress.com/2016/07/rachel.jpg>"
+                    );
+                    $("img").css({
+                        "height": "400px",
+                        "width": "400px"
+                    });
+                    $("#modal").modal('show');
                 })
             })
         </script>
