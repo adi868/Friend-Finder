@@ -3,7 +3,7 @@ Welcome to Friend_Finder! Friend_Finder is a full-stack site that takes in resul
 
 Curious to find your future friend? Check it out at: https://friend-finder-adi868.herokuapp.com/.
 
-## Technologies
+## Technologies:
 * JavaScript
 * Node.js
 * HTML5
