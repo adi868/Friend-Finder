@@ -48,6 +48,7 @@ By routing to `API Friends List`, users can see all the current stored users in 
 
 #### Screenshot:
 ![Screenshot1](FriendFinder.png)
+
 ![Screenshot2](FriendFinder2.png)
 
 #### Deployed Link: 
