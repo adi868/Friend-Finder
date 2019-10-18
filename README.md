@@ -47,7 +47,8 @@ The overall organization of the directory is as follows:
 By routing to `API Friends List`, users can see all the current stored users in the Friend Finder API.
 
 #### Screenshot:
-![Deployed Game]()
+![Screenshot1](FriendFinder.png)
+![Screenshot2](FriendFinder2.png)
 
 #### Deployed Link: 
 [Friend Finder](https://friend-finder-adi868.herokuapp.com/)
