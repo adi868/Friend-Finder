@@ -6,8 +6,9 @@ Welcome to Friend_Finder! Friend_Finder is a full-stack site that takes in resul
 Curious to find your future friend? Check it out at: [Friend Finder](https://friend-finder-adi868.herokuapp.com/)!
 
 ### Instructions:
-1. The survey will have 10 questions. Answer each question on how much you agree with each statement on a scale of 1 to 5 (Strongly Agree to Strongly Disagree).
-2. Submit your answers for the sorting algorithm to calculate your ultimate friendship match.
+1. To start, type in your name (Full Name) and link to a photo of you (so your future friends can identify you!).
+2. The survey will have 10 questions. Answer each question on how much you agree with each statement on a scale of 1 to 5 (Strongly Agree to Strongly Disagree).
+3. Submit your answers for the sorting algorithm to calculate your ultimate friendship match.
 
 ### Installation:
 1. Clone the complete repository from Github.
