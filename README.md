@@ -26,6 +26,7 @@ Curious to find your future friend? Check it out at: [Friend Finder](https://fri
 
 #### Application Organization:
 The overall organization of the directory is as follows:
+```
  Friend_Finder
     - .gitignore
     - app
@@ -40,6 +41,7 @@ The overall organization of the directory is as follows:
     - node_modules
     - package.json
     - server.js
+ ```
     
 By routing to `API Friends List`, users can see all the current stored users in the Friend Finder API.
 
