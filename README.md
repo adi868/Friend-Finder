@@ -24,7 +24,7 @@ Curious to find your future friend? Check it out at: [Friend Finder](https://fri
 * Path
 * Heroku
 * NPM Packages
-
+ 
 #### Application Organization:
 The overall organization of the directory is as follows:
 ```
