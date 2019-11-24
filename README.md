@@ -23,6 +23,7 @@ Curious to find your future friend? Check it out at: [Friend Finder](https://fri
 * Express
 * Path
 * Heroku
+* Bootstrap
 * NPM Packages
  
 #### Application Organization:
