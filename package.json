@@ -20,7 +20,7 @@
   "homepage": "https://github.com/adi868/Friend_Finder#readme",
   "dependencies": {
     "animate.css": "^3.7.2",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "path": "^0.12.7"
   },
   "devDependencies": {}
